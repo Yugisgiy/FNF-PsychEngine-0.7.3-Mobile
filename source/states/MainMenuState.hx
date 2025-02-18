@@ -27,6 +27,7 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var char:FlxSprite;
+	var backdrop:FlxBackdrop;
 
 	override function create()
 	{
@@ -53,6 +54,23 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
+
+		var theBG:BGSprite = new BGSprite('greenfarm', -680, -130, 0, 0);
+		add(theBG);
+
+		backdrop = new FlxBackdrop(Paths.image('backd'), 0.2, 0, true, true);
+		backdrop.velocity.set(200, 110);
+		backdrop.updateHitbox();
+		backdrop.alpha = 0.5;
+		backdrop.screenCenter(X);
+		add(backdrop);
+
+		var bga:FlxSprite = new FlxSprite(-120).loadGraphic(Paths.image('bgthing'));
+		bga.setGraphicSize(Std.int(bg.width * 1.175));
+		bga.updateHitbox();
+		bga.screenCenter();
+		bga.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bga);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
