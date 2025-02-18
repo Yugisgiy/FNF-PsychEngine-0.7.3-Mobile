@@ -124,7 +124,6 @@ class MainMenuState extends MusicBeatState
 			char.animation.play('idleBF');
 			char.scrollFactor.set();
 			char.flipX = false; //You should have already animated it in the right position in Animate
-			char.antialiasing =ClientPrefs.globalAntialiasing;
 			FlxG.sound.play(Paths.sound('sound'), 2); //optional
 			add(char);
 		}
