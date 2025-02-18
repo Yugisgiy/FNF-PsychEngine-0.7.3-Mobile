@@ -58,7 +58,7 @@ class MainMenuState extends MusicBeatState
 		var theBG:BGSprite = new BGSprite('greenfarm', -680, -130, 0, 0);
 		add(theBG);
 
-		var backdrop = new FlxSprite(Paths.image('backd'), 0.2, 0, true, true);
+		var backdrop = new FlxSprite(0.2).loadGraphic(Paths.image('backd'), 0.2, 0, true, true);
 		backdrop.velocity.set(200, 110);
 		backdrop.updateHitbox();
 		backdrop.alpha = 0.5;
