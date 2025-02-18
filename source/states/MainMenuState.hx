@@ -16,16 +16,17 @@ class MainMenuState extends MusicBeatState
 
 	var optionShit:Array<String> = [
 		'story_mode',
-		'freeplay',
+		'extras',
 		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',
-		#if !switch 'donate', #end
+		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		//'credits',
+		//#if !switch 'donate', #end
 		'options'
 	];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+	var char:FlxSprite;
 
 	override function create()
 	{
@@ -112,7 +113,21 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		FlxG.camera.follow(camFollow, null, 9);
+		//FlxG.camera.follow(camFollow, null, 9);
+
+		switch (FlxG.random.int(1, 1)) //You can change it with any number if there are more
+		{
+		case 1:
+			char = new FlxSprite(X, Y).loadGraphic(Paths.image('mainmenu/BOYFRIEND'));//Thanks to EIT for the tutorial
+			char.frames = Paths.getSparrowAtlas('mainmenu/BOYFRIEND');
+			char.animation.addByPrefix('idleBF', 'BF idle dance', 24, true); //the bool value's for deciding if it loops or not
+			char.animation.play('idleBF');
+			char.scrollFactor.set();
+			char.flipX = false; //You should have already animated it in the right position in Animate
+			char.antialiasing =ClientPrefs.globalAntialiasing;
+			FlxG.sound.play(Paths.sound('sound'), 2); //optional
+			add(char);
+		}
 	}
 
 	var selectedSomethin:Bool = false;
@@ -161,7 +176,7 @@ class MainMenuState extends MusicBeatState
 						{
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
-							case 'freeplay':
+							case 'extras':
 								MusicBeatState.switchState(new FreeplayState());
 
 							#if MODS_ALLOWED
