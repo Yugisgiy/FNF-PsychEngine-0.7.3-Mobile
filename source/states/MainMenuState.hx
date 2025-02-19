@@ -16,18 +16,16 @@ class MainMenuState extends MusicBeatState
 
 	var optionShit:Array<String> = [
 		'story_mode',
-		'extras',
+		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
-		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		//'credits',
-		//#if !switch 'donate', #end
+		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'credits',
+		#if !switch 'donate', #end
 		'options'
 	];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
-	var char:FlxSprite;
-	var backdrop:FlxSprite;
 
 	override function create()
 	{
@@ -55,22 +53,6 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
-		var theBG:BGSprite = new BGSprite('greenfarm', -680, -130, 0, 0);
-		add(theBG);
-
-		var backdrop = new FlxSprite(0.2).loadGraphic(Paths.image('backd'), 0.2, 0, true, true);
-		backdrop.velocity.set(200, 110);
-		backdrop.updateHitbox();
-		backdrop.alpha = 0.5;
-		backdrop.screenCenter(X);
-		add(backdrop);
-
-		var bga:FlxSprite = new FlxSprite(-120).loadGraphic(Paths.image('bgthing'));
-		bga.setGraphicSize(Std.int(bg.width * 1.175));
-		bga.updateHitbox();
-		bga.screenCenter();
-		add(bga);
-
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
@@ -96,7 +78,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
-			menuItem.ID = i;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if (optionShit.length < 6)
@@ -104,7 +85,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.updateHitbox();
 			menuItem.screenCenter(X);
-			menuItem.x += 300;
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -132,20 +112,7 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		//FlxG.camera.follow(camFollow, null, 9);
-
-		switch (FlxG.random.int(1, 1)) //You can change it with any number if there are more
-		{
-		case 1:
-			char = new FlxSprite(100, 270).loadGraphic(Paths.image('mainmenu/BOYFRIEND'));//Thanks to EIT for the tutorial
-			char.frames = Paths.getSparrowAtlas('mainmenu/BOYFRIEND');
-			char.animation.addByPrefix('idleBF', 'BF idle dance', 24, true); //the bool value's for deciding if it loops or not
-			char.animation.play('idleBF');
-			char.scrollFactor.set();
-			char.flipX = false; //You should have already animated it in the right position in Animate
-			FlxG.sound.play(Paths.sound('sound'), 2); //optional
-			add(char);
-		}
+		FlxG.camera.follow(camFollow, null, 9);
 	}
 
 	var selectedSomethin:Bool = false;
@@ -194,7 +161,7 @@ class MainMenuState extends MusicBeatState
 						{
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
-							case 'extras':
+							case 'freeplay':
 								MusicBeatState.switchState(new FreeplayState());
 
 							#if MODS_ALLOWED
