@@ -27,7 +27,6 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var char:FlxSprite;
-	var cursor:FlxSprite;
 
 	override function create()
 	{
@@ -115,10 +114,6 @@ class MainMenuState extends MusicBeatState
 		addTouchPad("UP_DOWN", "A_B_E");
 
 		super.create();
-
-		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
-		cursor.loadGraphic(Paths.image('mouse'));
-		FlxG.mouse.load(cursor.pixels);
 
 		//FlxG.camera.follow(camFollow, null, 9);
 
