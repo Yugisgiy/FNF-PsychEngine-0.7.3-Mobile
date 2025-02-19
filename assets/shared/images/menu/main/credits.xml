@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="credits.png" width="130" height="1862">
+	<SubTexture name="mm_creditsidle0000" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0001" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0002" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0003" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0004" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0005" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0006" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0007" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0008" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsidle0009" x="1" y="1493" width="127" height="368" frameX="-722" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0000" x="1" y="1" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0001" x="1" y="1" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0002" x="1" y="1" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0003" x="1" y="1" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0004" x="1" y="1" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0005" x="1" y="374" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0006" x="1" y="374" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0007" x="1" y="374" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0008" x="1" y="374" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0009" x="1" y="374" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0010" x="1" y="747" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0011" x="1" y="747" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0012" x="1" y="747" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0013" x="1" y="747" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0014" x="1" y="747" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0015" x="1" y="1120" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0016" x="1" y="1120" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0017" x="1" y="1120" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0018" x="1" y="1120" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_creditsc0019" x="1" y="1120" width="128" height="368" frameX="-721" frameY="-53" frameWidth="851" frameHeight="483"/>
+</TextureAtlas>

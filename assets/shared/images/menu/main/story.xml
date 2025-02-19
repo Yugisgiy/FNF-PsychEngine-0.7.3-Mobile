@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="story.png" width="221" height="2235">
+	<SubTexture name="mm_storyidle0000" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0001" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0002" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0003" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0004" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0005" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0006" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0007" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0008" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0009" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0010" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0011" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0012" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0013" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0014" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0015" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0016" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0017" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyidle0018" x="1" y="1866" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0000" x="1" y="1" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0001" x="1" y="1" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0002" x="1" y="1" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0003" x="1" y="1" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0004" x="1" y="1" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0005" x="1" y="374" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0006" x="1" y="374" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0007" x="1" y="374" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0008" x="1" y="374" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0009" x="1" y="374" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0010" x="1" y="747" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0011" x="1" y="747" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0012" x="1" y="747" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0013" x="1" y="747" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0014" x="1" y="747" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0015" x="1" y="1120" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0016" x="1" y="1120" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0017" x="1" y="1120" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0018" x="1" y="1120" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0019" x="1" y="1120" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0020" x="1" y="1493" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0021" x="1" y="1493" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0022" x="1" y="1493" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0023" x="1" y="1493" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+	<SubTexture name="mm_storyc0024" x="1" y="1493" width="219" height="368" frameX="-5" frameY="-55" frameWidth="851" frameHeight="483"/>
+</TextureAtlas>
