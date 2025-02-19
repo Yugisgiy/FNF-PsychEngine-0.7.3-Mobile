@@ -9,7 +9,7 @@ import options.OptionsState;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.7.3'; // This is also used for Discord RPC
+	public static var psychEngineVersion:String = '1.0.7'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -27,6 +27,7 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var char:FlxSprite;
+	var cursor:FlxSprite;
 
 	override function create()
 	{
@@ -114,6 +115,10 @@ class MainMenuState extends MusicBeatState
 		addTouchPad("UP_DOWN", "A_B_E");
 
 		super.create();
+
+		cursor.makeGraphic(15, 15, FlxColor.TRANSPARENT);
+		cursor.loadGraphic(Paths.image('mouse'));
+		FlxG.mouse.load(cursor.pixels);
 
 		//FlxG.camera.follow(camFollow, null, 9);
 
