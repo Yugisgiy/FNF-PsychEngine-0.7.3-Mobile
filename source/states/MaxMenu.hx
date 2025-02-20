@@ -104,6 +104,8 @@ class MaxMenu extends MusicBeatState
 
     }
 
+    addTouchPad("LEFT_RIGHT", "A_B_E");
+
     override function update(elapsed:Float) {
         if (controls.UI_LEFT_P || controls.UI_RIGHT_P) change();
         if (controls.ACCEPT) {
