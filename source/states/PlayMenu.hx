@@ -81,7 +81,6 @@ class PlayMenu extends MusicBeatSubstate
 	//logic
 	var curMenuSong:String = '';
 	var menuState:PlayMenuState;
-	var songs:Array<RobloxMeta> = [];
 	static var curSelected:Int = 0;
 	public function new(?state:PlayMenuState) {
 		super();
@@ -692,8 +691,7 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 		FlxG.sound.play(Paths.sound('click'));
 		FlxG.save.data.hasToggledStreamer = true;
 
-		var prevCopyright = ClientPrefs.data.copyrightMusic;
-		
+		var prevCopyright = ClientPrefs.data.copyrightMusic;	
 		var copyRight:Bool = (objkec != yes);
 		ClientPrefs.data.copyrightMusic = copyRight;
 		ClientPrefs.saveSettings();
@@ -703,8 +701,6 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 			var newSong = parent.getSong();
 			parent.k.centerOnSprite(parent.bar);
 			parent.k.y += 6;
-			FlxG.sound.music.volume = 1;
-
 		}
 
 	}
