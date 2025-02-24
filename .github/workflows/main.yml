@@ -13,11 +13,6 @@ jobs:
             buildArgs: windows
             artifactName: windowsBuild
             artifactPath: export\release\windows\bin\*
-          - name: Windows ARM64
-            os: windows-2022
-            buildArgs: "windows -arm64 -D HXCPP_ARM64"
-            artifactName: windowsArm64Build
-            artifactPath: export\release\windows\bin\*
           - name: Linux
             os: ubuntu-22.04
             buildArgs: linux
