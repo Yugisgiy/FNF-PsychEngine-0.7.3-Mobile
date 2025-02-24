@@ -700,17 +700,13 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 		ClientPrefs.data.copyrightMusic = copyRight;
 		ClientPrefs.saveSettings();
 
-		parent.updatecButton();
 
 		if (prevCopyright != copyRight) {
 			// trace('doesntMacthc load a new song');
 			var newSong = parent.getSong();
-			parent.playMusic(newSong);
-			parent.k.text = newSong.substr(newSong.lastIndexOf('/') + 1);
 			parent.k.centerOnSprite(parent.bar);
 			parent.k.y += 6;
 		}
-		else {
 			FlxG.sound.music.volume = 1;
 		}
 
