@@ -2,14 +2,17 @@ package objects;
 
 class HealthIcon extends FlxSprite
 {
+	public var defScale:Float = 1;
+
 	public var sprTracker:FlxSprite;
 	private var isOldIcon:Bool = false;
 	private var isPlayer:Bool = false;
 	private var char:String = '';
 
-	public function new(char:String = 'bf', isPlayer:Bool = false, ?allowGPU:Bool = true)
+	public function new(char:String = 'bf', isPlayer:Bool = false, ?allowGPU:Bool = true,defScale:Float = 1)
 	{
 		super();
+		this.defScale = defScale;
 		isOldIcon = (char == 'bf-old');
 		this.isPlayer = isPlayer;
 		changeIcon(char, allowGPU);
@@ -45,6 +48,9 @@ class HealthIcon extends FlxSprite
 				antialiasing = false;
 			else
 				antialiasing = ClientPrefs.data.antialiasing;
+
+			scale.set(defScale,defScale);
+			updateHitbox();
 		}
 	}
 
