@@ -2,6 +2,11 @@ package backend;
 
 class Highscore
 {
+	
+	public static var songScoreDatas:Map<String,SongScoreData> = new Map();
+
+
+
 	public static var weekScores:Map<String, Int> = new Map();
 	public static var songScores:Map<String, Int> = new Map<String, Int>();
 	public static var songRating:Map<String, Float> = new Map<String, Float>();
@@ -120,5 +125,75 @@ class Highscore
 		{
 			songRating = FlxG.save.data.songRating;
 		}
+		
+		if (FlxG.save.data.songScoreDatas != null) songScoreDatas = FlxG.save.data.songScoreDatas;
 	}
+
+	public static function getSongData(song:String,diff:Int) 
+		{
+			var songToGet:String = formatSong(song, diff);
+			if (songScoreDatas.exists(songToGet)) return songScoreDatas.get(songToGet);
+			return songScoreDataTemplate();
+		}
+	
+		public static function saveSongData(song:String,diff:Int,score:Int = 0,rating:Float = 0,fc:FCLevel = SDCB) 
+		{
+			var songToSave:String = formatSong(song, diff);
+	
+			var tempData = songScoreDataTemplate();
+			if (songScoreDatas.exists(songToSave)) tempData = songScoreDatas.get(songToSave);
+			
+			tempData.songScore = setSongScore(tempData.songScore,score);
+			tempData.songRating = setSongRating(tempData.songRating,rating);
+			tempData.songFC = cast(setSongFC(tempData.songFC,fc),FCLevel); //casted to ints to compare then casted back to rating
+			songScoreDatas.set(songToSave,tempData);
+	
+			FlxG.save.data.songScoreDatas = songScoreDatas;
+			FlxG.save.flush();
+			trace(songScoreDatas);
+		}
+	
+		static function setSongScore(songScore:Int,score:Int) {
+			return songScore = songScore < score ? score : songScore;
+		}
+	
+		static function setSongRating(songRating:Float,rating:Float) {
+			return songRating = songRating < rating ? rating : songRating;
+		}
+
+
+	public static function calculateFC(misses:Int = 0,rating:Float = 0) {
+		if (misses == 0) {
+			if (rating == 1) return PFC;
+			return FC;
+		}
+		return SDCB;
+	}
+
+	static function setSongFC(songFC:FCLevel,fc:FCLevel) {
+		return cast(songFC,Int) < cast(fc,Int) ? fc : songFC;
+	}
+
+
+	static function songScoreDataTemplate():SongScoreData 
+		{
+			return {
+				songScore: 0,
+				songRating: 0.0,
+				songFC: SDCB
+			}
+		}
+}
+
+typedef SongScoreData = {
+	songScore:Int,
+	songRating:Float,
+	songFC:FCLevel
+}
+
+enum abstract FCLevel(Int) to Int from Int 
+{
+	var PFC:Int = 2;
+	var FC:Int = 1;
+	var SDCB:Int = 0;
 }
