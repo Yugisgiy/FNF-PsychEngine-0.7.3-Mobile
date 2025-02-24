@@ -232,7 +232,7 @@ class PlayMenu extends MusicBeatSubstate
 		add(score);
 		score.centerOnSprite(monitor);
 
-		overlay = new FlxSprite()Paths.getSparrowAtlas('menu/rolbox/song/grad');
+		overlay = new FlxSprite().Paths.getSparrowAtlas('menu/rolbox/song/grad');
 		add(overlay);
 		overlay.screenCenter();
 
