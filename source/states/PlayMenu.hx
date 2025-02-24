@@ -595,7 +595,7 @@ class PlayMenu extends MusicBeatSubstate
 }
 
 
-@:structInit class RobloxMeta
+@:structInit class RobloxMeta }
 	public var songName:String = '';
 	public var week:Int = 0;
 	public var modFolder:String = null;
