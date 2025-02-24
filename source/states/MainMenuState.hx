@@ -137,7 +137,6 @@ class MainMenuState extends MusicBeatState
 			tex.font = Paths.font('ARIAL.TTF');
 			var width = tex.width;
 			tex.size = Std.int(tex.size/scale);
-			tex.setScale(scale);
 			tex.screenCenter(X);
 			if (i == FlxG.random.int(0,optionShit.length)) {
 				tex.x += FlxG.random.int(5,20);
@@ -156,7 +155,6 @@ class MainMenuState extends MusicBeatState
 
 	function spawn() 
 	{
-		fire.graphicSize(0,FlxG.height);
 		var scale = fire.scale.y;
 		fire.scale.y = 0;
 
