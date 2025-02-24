@@ -210,7 +210,7 @@ class MainMenuState extends MusicBeatState
 					switch (optionShit[curSelected])
 					{
 						case 'jams':
-							MusicBeatState.switchState(new PlayMenu());
+							MusicBeatState.switchState(new StoryMenuState());
 							// MusicBeatState.switchState(new PlayMenu());
 						case 'members':
 							FlxTransitionableState.skipNextTransIn = FlxTransitionableState.skipNextTransOut = true;
