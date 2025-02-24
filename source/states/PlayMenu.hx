@@ -711,7 +711,6 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 		}
 
 
-		destroy();
 
 
 
