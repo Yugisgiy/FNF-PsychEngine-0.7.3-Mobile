@@ -684,7 +684,6 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 		FlxMouseEvent.remove(yes);
 		@:privateAccess FlxG.camera._fxFadeAlpha = 0;
 
-		parent.selectedSomethin = false;
 		super.destroy();
 	}
 
@@ -694,25 +693,19 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 		FlxG.save.data.hasToggledStreamer = true;
 
 		var prevCopyright = ClientPrefs.data.copyrightMusic;
-		//trace('prev' + ' ' + prevCopyright);
 		
 		var copyRight:Bool = (objkec != yes);
 		ClientPrefs.data.copyrightMusic = copyRight;
 		ClientPrefs.saveSettings();
-
 
 		if (prevCopyright != copyRight) {
 			// trace('doesntMacthc load a new song');
 			var newSong = parent.getSong();
 			parent.k.centerOnSprite(parent.bar);
 			parent.k.y += 6;
-		}
 			FlxG.sound.music.volume = 1;
+
 		}
 
-
-
-
-
-
+	}
 }
