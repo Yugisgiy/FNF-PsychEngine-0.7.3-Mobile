@@ -715,5 +715,4 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 
 
 
-	}
 }
