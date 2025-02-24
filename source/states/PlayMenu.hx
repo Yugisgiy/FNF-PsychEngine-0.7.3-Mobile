@@ -136,7 +136,6 @@ class PlayMenu extends MusicBeatSubstate
 
 			path = 'copyright';
 			files = FileSystem.readDirectory('assets/shared/music/copyright');
-		}
 
 		var song = FlxG.random.getObject(files);
 		trace(song);
