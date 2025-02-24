@@ -3,7 +3,7 @@ package states;
 import flixel.addons.display.FlxTiledSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.display.FlxBackdrop;
-import flixel.text.FlxText
+import flixel.text.FlxText;
 import objects.SpriteFromSheet;
 import objects.FunkinSprite;
 import flixel.FlxObject;
