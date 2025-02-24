@@ -134,7 +134,6 @@ class PlayMenu extends MusicBeatSubstate
 		var path = 'free';
 		var files:Array<String> = FileSystem.readDirectory('assets/shared/music/free');
 
-		if (ClientPrefs.data.copyrightMusic) {
 			path = 'copyright';
 			files = FileSystem.readDirectory('assets/shared/music/copyright');
 		}
@@ -233,9 +232,8 @@ class PlayMenu extends MusicBeatSubstate
 		score.text = 'penisSocre';
 		add(score);
 		score.centerOnSprite(monitor);
-		score.y += 30;
 
-		overlay = new FlxSprite().loadImage('menu/rolbox/song/grad');
+		overlay = new FlxSprite()Paths.getSparrowAtlas('menu/rolbox/song/grad');
 		add(overlay);
 		overlay.screenCenter();
 
@@ -581,7 +579,6 @@ class PlayMenu extends MusicBeatSubstate
 	function updateK() {
 		k.text = curMenuSong.substr(curMenuSong.lastIndexOf('/') + 1);
 		k.centerOnSprite(bar);
-		k.y += 6;
 	}
 	function updatecButton() {
 		cButton.animation.play(ClientPrefs.data.copyrightMusic ? 'copyright' : 'nocopyright');
@@ -596,9 +593,6 @@ class PlayMenu extends MusicBeatSubstate
 		txt.size = Std.int(txt.size/retro);
 		txt.setScale(retro);
 		return txt;
-	}
-
-
 }
 
 
