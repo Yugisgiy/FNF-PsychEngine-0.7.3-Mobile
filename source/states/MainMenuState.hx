@@ -3,6 +3,7 @@ package states;
 import flixel.addons.display.FlxTiledSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.display.FlxBackdrop;
+import flixel.text.FlxText
 import objects.SpriteFromSheet;
 import objects.FunkinSprite;
 import flixel.FlxObject;
@@ -155,7 +156,6 @@ class MainMenuState extends MusicBeatState
 
 	function spawn() 
 	{
-
 		fire.graphicSize(0,FlxG.height);
 		var scale = fire.scale.y;
 		fire.scale.y = 0;
