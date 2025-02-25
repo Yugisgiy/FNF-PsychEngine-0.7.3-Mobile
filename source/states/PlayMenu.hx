@@ -583,7 +583,6 @@ class PlayMenu extends MusicBeatSubstate
 
 
 	public var week:Int = 0;
-	public var modFolder:String = null;
 
 	public var lockReqs:Array<String> = [];
 
