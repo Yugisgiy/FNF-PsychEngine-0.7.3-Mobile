@@ -88,8 +88,8 @@
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
-	<haxelib name="flixel-ui" version="2.6.1" />
-	<haxelib name="flixel-addons" version="3.2.2"/>
+	<haxelib name="flixel-ui" />
+	<haxelib name="flixel-addons" />
 	<haxelib name="tjson" />
 	<haxelib name="compiletime" />
 
