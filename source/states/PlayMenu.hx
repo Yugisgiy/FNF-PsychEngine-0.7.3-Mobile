@@ -560,7 +560,6 @@ class PlayMenu extends MusicBeatSubstate
 			playMusic(curMenuSong);
 			updateK();
 		}
-		updatecButton();
 	}	
 
 	function updateK() {
