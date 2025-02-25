@@ -482,7 +482,6 @@ class PlayMenu extends MusicBeatSubstate
 		FlxTransitionableState.skipNextTransIn = true;
 		persistentUpdate = false;
 
-		var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 		var poop:String = Highscore.formatSong(songLowercase, 1);
 		trace(poop);
 
@@ -525,18 +524,12 @@ class PlayMenu extends MusicBeatSubstate
 
 
 		curSelected = FlxMath.wrap(curSelected + huh,0,songs.length-1);
-
 		monitor.animation.play('static',true);
 		score.text = 'score ' + Std.string(Highscore.getSongData(songs[curSelected].songName, 1).songScore);
-		Mods.currentModDirectory = songs[curSelected].modFolder;
-
 		trace('is "${songs[curSelected].songName}" Locked? ' + songs[curSelected].isLocked + ' and what are the requirements? ' + songs[curSelected].lockReqs);
-
-		var isLocked = songs[curSelected].isLocked;
-		
+		var isLocked = songs[curSelected].isLocked;	
 
 		songName.text = #if !debug isLocked ? FlxG.random.getObject(hiddenTexts) : #end songs[curSelected].songName;
-
 		lock.visible = isLocked;
 
 		updateStar();
@@ -544,7 +537,6 @@ class PlayMenu extends MusicBeatSubstate
 	}
 	function updateStar() {
 		var data = Highscore.getSongData(songs[curSelected].songName, 1);
-		fcStar.visible = !lock.visible;
 		if (data.songScore > 0) {
 			switch (data.songFC) {
 				case SDCB: fcStar.animation.play('complete',true,false,fcStar.animation.curAnim.curFrame);
@@ -561,11 +553,8 @@ class PlayMenu extends MusicBeatSubstate
 
 	function updateCopyrightSave() {
 		FlxG.sound.play(Paths.sound('click'));
-		var prev = ClientPrefs.data.copyrightMusic;
-		ClientPrefs.data.copyrightMusic = !ClientPrefs.data.copyrightMusic;
 		ClientPrefs.saveSettings();
 
-		if (!ClientPrefs.data.copyrightMusic && prev) {
 
 			curMenuSong = getSong();
 			playMusic(curMenuSong);
@@ -690,16 +679,13 @@ class StreamPrompt extends FlxTypedSpriteGroup<FlxSprite> {
 	function updateCopyrioght(objkec:FlxSprite) {
 		FlxG.sound.play(Paths.sound('click'));
 		FlxG.save.data.hasToggledStreamer = true;
-
-		var prevCopyright = ClientPrefs.data.copyrightMusic;	
+	
 		var copyRight:Bool = (objkec != yes);
-		ClientPrefs.data.copyrightMusic = copyRight;
 		ClientPrefs.saveSettings();
 
 		if (prevCopyright != copyRight) {
 			// trace('doesntMacthc load a new song');
 			var newSong = parent.getSong();
-			parent.k.centerOnSprite(parent.bar);
 			parent.k.y += 6;
 		}
 
