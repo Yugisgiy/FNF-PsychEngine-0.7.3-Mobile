@@ -582,7 +582,6 @@ class PlayMenu extends MusicBeatSubstate
 }
 
 
-	public var songName:String = '';
 	public var week:Int = 0;
 	public var modFolder:String = null;
 
