@@ -220,7 +220,7 @@ class MainMenuState extends MusicBeatState
 	var selectedSomethin:Bool = false;
 
 	override function update(elapsed:Float)
-	{
+	}
 		FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1)); // funny camera
 		
 		if (FlxG.sound.music.volume < 0.8)
