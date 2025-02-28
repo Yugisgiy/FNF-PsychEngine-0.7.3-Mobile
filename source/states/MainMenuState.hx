@@ -8,6 +8,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -35,7 +36,6 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = ['story_mode', 'freeplay', 'extras', 'awards', 'options'];
 
 	var char:FlxSprite;
-	var backdrop:FlxBackdrop;
 
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
