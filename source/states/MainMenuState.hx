@@ -69,9 +69,7 @@ class MainMenuState extends MusicBeatState
 		add(backdrop);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
-		add(camFollowPos);
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
@@ -295,8 +293,8 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		
 		menuItems.members[curSelected].animation.play('idle');
-		spr.offset.y = 0;
-		spr.updateHitbox();
+		menuItem.offset.y = 0;
+		menuItem.updateHitbox();
 		menuItems.members[curSelected].updateHitbox();
 		menuItems.members[curSelected].screenCenter(X);
 
@@ -309,8 +307,8 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.members[curSelected].animation.play('selected');
 		camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
-		spr.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
-		spr.offset.y = 0.15 * spr.frameHeight;
+		menuItem.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
+		menuItem.offset.y = 0.15 * spr.frameHeight;
 		FlxG.log.add(spr.frameWidth);
 		menuItems.members[curSelected].centerOffsets();
 		menuItems.members[curSelected].screenCenter(X);
