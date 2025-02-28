@@ -322,8 +322,8 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 		
 		menuItems.members[curSelected].animation.play('idle');
+		menuItems.offset[curSelected].y = 0;
 		menuItems.members[curSelected].updateHitbox();
-		menuItems.members[curSelected].screenCenter(X);
 
 		curSelected += huh;
 
@@ -333,8 +333,10 @@ class MainMenuState extends MusicBeatState
 			curSelected = menuItems.length - 1;
 
 		menuItems.members[curSelected].animation.play('selected');
-		menuItems.members[curSelected].centerOffsets();
-		menuItems.members[curSelected].screenCenter(X);
+		camFollow.setPosition[curSelected](menuItems.getGraphicMidpoint().x, menuItems.getGraphicMidpoint().y);
+		menuItems.offset[curSelected].x = 0.15 * (menuItems.frameWidth / 2 + 180);
+		menuItems.offset[curSelected].y = 0.15 * menuItems.frameHeight;
+		FlxG.log[curSelected].add(menuItems.frameWidth);
 
 		camFollow.setPosition(menuItems.members[curSelected].getGraphicMidpoint().x,
 			menuItems.members[curSelected].getGraphicMidpoint().y - (menuItems.length > 4 ? menuItems.length * 8 : 0));
