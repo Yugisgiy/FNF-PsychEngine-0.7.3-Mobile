@@ -61,7 +61,7 @@ class MainMenuState extends MusicBeatState
 		add(theBG);
 		
 
-		backdrop = new FlxBackdrop(Paths.image('backd'), 0.2, 0, true, true);
+		backdrop = new FlxBackdrop(Paths.image('backd'), XY, 0, 0);
 		backdrop.velocity.set(200, 110);
 		backdrop.updateHitbox();
 		backdrop.alpha = 0.5;
@@ -304,7 +304,6 @@ class MainMenuState extends MusicBeatState
 			curSelected = menuItems.length - 1;
 
 		menuItems.members[curSelected].animation.play('selected');
-		camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 		menuItems.members[curSelected].centerOffsets();
 		menuItems.members[curSelected].screenCenter(X);
 
