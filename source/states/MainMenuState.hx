@@ -150,9 +150,11 @@ class MainMenuState extends MusicBeatState
 
 		spawn();
 		changeItem();
-		super.create();
 
 		addTouchPad("UP_DOWN", "A_B");
+
+		super.create();
+
 	}
 
 	function spawn() 
