@@ -2,6 +2,7 @@ package states;
 
 import flixel.FlxObject;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
@@ -17,12 +18,15 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		//#if MODS_ALLOWED 'mods', #end
+		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
+		//#if !switch 'donate', #end
 		'options'
 	];
+
+	var char:FlxSprite;
+	var backdrop:FlxBackdrop;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -53,13 +57,26 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
+		var theBG:BGSprite = new BGSprite('greenfarm', -680, -130, 0, 0);
+		add(theBG);
+		
+
+		backdrop = new FlxBackdrop(Paths.image('backd'), 0.2, 0, true, true);
+		backdrop.velocity.set(200, 110);
+		backdrop.updateHitbox();
+		backdrop.alpha = 0.5;
+		backdrop.screenCenter(X);
+		add(backdrop);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
+		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
+		add(camFollowPos);
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
 		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
+		//magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
@@ -87,7 +104,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.screenCenter(X);
 		}
 
-		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Strident Engine v" + psychEngineVersion, 12);
 		psychVer.scrollFactor.set();
 		psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(psychVer);
@@ -95,6 +112,10 @@ class MainMenuState extends MusicBeatState
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
+		var watermarkMenuTxt:FlxText = new FlxText(12, FlxG.height - 64, 0, "Strident Crisis V1.5", 12);
+		watermarkMenuTxt.scrollFactor.set();
+		watermarkMenuTxt.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(watermarkMenuTxt);
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -112,7 +133,62 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 
-		FlxG.camera.follow(camFollow, null, 9);
+		//FlxG.camera.follow(camFollow, null, 9);
+
+		switch (FlxG.random.int(1, 6))
+		{
+			case 1:
+				char = new FlxSprite(100, 270).loadGraphic(Paths.image('mainmenu/bambiRemake'));//put your cords and image here
+				char.frames = Paths.getSparrowAtlas('mainmenu/bambiRemake');//here put the name of the xml
+				char.animation.addByPrefix('idleR', 'bambi idle', 24, true);//on 'idle normal' change it to your xml one
+				char.animation.play('idleR');//you can rename the anim however you want to
+				char.scrollFactor.set();
+				add(char);
+			case 2:
+				char = new FlxSprite(-700, -170).loadGraphic(Paths.image('mainmenu/Bamb'));//put your cords and image here
+				char.frames = Paths.getSparrowAtlas('mainmenu/Bamb');//here put the name of the xml
+				char.animation.addByPrefix('idleR', 'Bamb Idle', 24, true);//on 'idle normal' change it to your xml one
+				char.animation.play('idleR');//you can rename the anim however you want to
+				char.scrollFactor.set();
+				char.scale.set(0.6, 0.6);
+				add(char);
+			case 3:
+				char = new FlxSprite(-100, 120).loadGraphic(Paths.image('mainmenu/Banbi'));//put your cords and image here
+				char.frames = Paths.getSparrowAtlas('mainmenu/Banbi');//here put the name of the xml
+				char.animation.addByPrefix('idleR', 'Banbi Idle', 24, true);//on 'idle normal' change it to your xml one
+				char.animation.play('idleR');//you can rename the anim however you want to
+				char.scrollFactor.set();
+				char.scale.set(0.7, 0.7);
+				add(char);
+
+				case 4:
+					char = new FlxSprite(100, 140).loadGraphic(Paths.image('mainmenu/OppositionX_Assets'));//put your cords and image here
+					char.frames = Paths.getSparrowAtlas('mainmenu/OppositionX_Assets');//here put the name of the xml
+					char.animation.addByPrefix('idleR', 'Idle', 24, true);//on 'idle normal' change it to your xml one
+					char.animation.play('idleR');//you can rename the anim however you want to
+					char.scrollFactor.set();
+					char.scale.set(1.5, 1.5);
+					add(char);
+
+					case 5:
+						char = new FlxSprite(50, -80).loadGraphic(Paths.image('mainmenu/Cheater'));//put your cords and image here
+						char.frames = Paths.getSparrowAtlas('mainmenu/Cheater');//here put the name of the xml
+						char.animation.addByPrefix('idleR', 'Cheater Idle', 24, true);//on 'idle normal' change it to your xml one
+						char.animation.play('idleR');//you can rename the anim however you want to
+						char.scrollFactor.set();
+						char.scale.set(0.7, 0.7);
+						add(char);
+					case 6:
+						char = new FlxSprite(-300, -170).loadGraphic(Paths.image('mainmenu/diambi'));//put your cords and image here
+						char.frames = Paths.getSparrowAtlas('mainmenu/diambi');//here put the name of the xml
+						char.animation.addByPrefix('idleR', 'diambi idle', 24, true);//on 'idle normal' change it to your xml one
+						char.animation.play('idleR');//you can rename the anim however you want to
+						char.scrollFactor.set();
+						char.scale.set(0.7, 0.7);
+						add(char);
+					    
+
+		}
 	}
 
 	var selectedSomethin:Bool = false;
@@ -215,18 +291,25 @@ class MainMenuState extends MusicBeatState
 	function changeItem(huh:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
+		
 		menuItems.members[curSelected].animation.play('idle');
+		spr.offset.y = 0;
+		spr.updateHitbox();
 		menuItems.members[curSelected].updateHitbox();
 		menuItems.members[curSelected].screenCenter(X);
 
 		curSelected += huh;
 
 		if (curSelected >= menuItems.length)
-			curSelected = 0;
+			curSelected
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
 
 		menuItems.members[curSelected].animation.play('selected');
+		camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+		spr.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
+		spr.offset.y = 0.15 * spr.frameHeight;
+		FlxG.log.add(spr.frameWidth);
 		menuItems.members[curSelected].centerOffsets();
 		menuItems.members[curSelected].screenCenter(X);
 
