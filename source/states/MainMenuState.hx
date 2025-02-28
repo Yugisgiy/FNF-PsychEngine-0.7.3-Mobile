@@ -1,8 +1,5 @@
-package;
+package states;
 
-#if desktop
-import Discord.DiscordClient;
-#end
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -33,8 +30,12 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', 'awards', 'options'];
-
+	var optionShit:Array<String> = [
+		'story_mode', 		
+		'freeplay', 		
+		'awards', 		
+		'options'
+	];
 	var char:FlxSprite;
 	var backdrop:FlxBackdrop;
 
@@ -43,7 +44,12 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		#if desktop
+		#if MODS_ALLOWED
+		Mods.pushGlobalMods();
+		#end
+		Mods.loadTopMod();
+
+		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
@@ -115,20 +121,17 @@ class MainMenuState extends MusicBeatState
 
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Strident Engine v" + psychEngineVersion, 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
+		psychVer.scrollFactor.set();
+		psychVer.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(psychVer);
+		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		fnfVer.scrollFactor.set();
+		fnfVer.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(fnfVer);
 		var watermarkMenuTxt:FlxText = new FlxText(12, FlxG.height - 64, 0, "Strident Crisis V1.5", 12);
 		watermarkMenuTxt.scrollFactor.set();
 		watermarkMenuTxt.setFormat("Comic Sans MS", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(watermarkMenuTxt);
-
-		// NG.core.calls.event.logEvent('swag').send();
-
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -138,8 +141,13 @@ class MainMenuState extends MusicBeatState
 			Achievements.achievementsUnlocked[achievementID][1] = true;
 			giveAchievement();
 			ClientPrefs.saveSettings();
-		}
+
+		#if MODS_ALLOWED
+		Achievements.reloadList();
 		#end
+		#end
+
+		addTouchPad("UP_DOWN", "A_B");
 
 		super.create();
 
@@ -316,8 +324,11 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
+									#if ACHIEVEMENTS_ALLOWED
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
+									#end
+
 									case 'options':
 										MusicBeatState.switchState(new options.OptionsState());
 								}
@@ -326,8 +337,7 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			#if desktop
-			else if (FlxG.keys.justPressed.SEVEN)
+			else if (controls.justPressed('debug_1') || touchPad.buttonE.justPressed)
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
