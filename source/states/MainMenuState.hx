@@ -33,9 +33,10 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
-	var optionShit:Array<String> = ['story_mode', 'freeplay', 'extras', 'awards', 'options'];
+	var optionShit:Array<String> = ['story_mode', 'freeplay', 'awards', 'options'];
 
 	var char:FlxSprite;
+	var backdrop:FlxBackdrop
 
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
@@ -64,7 +65,6 @@ class MainMenuState extends MusicBeatState
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
 		var theBG:BGSprite = new BGSprite('greenfarm', -680, -130, 0, 0);
@@ -82,7 +82,6 @@ class MainMenuState extends MusicBeatState
 		bga.setGraphicSize(Std.int(bg.width * 1.175));
 		bga.updateHitbox();
 		bga.screenCenter();
-		bga.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bga);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -110,7 +109,6 @@ class MainMenuState extends MusicBeatState
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
 			menuItem.scrollFactor.set(0, scr);
-			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
@@ -153,7 +151,6 @@ class MainMenuState extends MusicBeatState
 				char.animation.addByPrefix('idleR', 'bambi idle', 24, true);//on 'idle normal' change it to your xml one
 				char.animation.play('idleR');//you can rename the anim however you want to
 				char.scrollFactor.set();
-				char.antialiasing = ClientPrefs.globalAntialiasing;
 				add(char);
 			case 2:
 				char = new FlxSprite(-700, -170).loadGraphic(Paths.image('mainmenu/Bamb'));//put your cords and image here
@@ -162,7 +159,6 @@ class MainMenuState extends MusicBeatState
 				char.animation.play('idleR');//you can rename the anim however you want to
 				char.scrollFactor.set();
 				char.scale.set(0.6, 0.6);
-				char.antialiasing = ClientPrefs.globalAntialiasing;
 				add(char);
 			case 3:
 				char = new FlxSprite(-100, 120).loadGraphic(Paths.image('mainmenu/Banbi'));//put your cords and image here
@@ -171,7 +167,6 @@ class MainMenuState extends MusicBeatState
 				char.animation.play('idleR');//you can rename the anim however you want to
 				char.scrollFactor.set();
 				char.scale.set(0.7, 0.7);
-				char.antialiasing = ClientPrefs.globalAntialiasing;
 				add(char);
 
 				case 4:
@@ -181,7 +176,6 @@ class MainMenuState extends MusicBeatState
 					char.animation.play('idleR');//you can rename the anim however you want to
 					char.scrollFactor.set();
 					char.scale.set(1.5, 1.5);
-					char.antialiasing = ClientPrefs.globalAntialiasing;
 					add(char);
 
 					case 5:
@@ -191,7 +185,6 @@ class MainMenuState extends MusicBeatState
 						char.animation.play('idleR');//you can rename the anim however you want to
 						char.scrollFactor.set();
 						char.scale.set(0.7, 0.7);
-						char.antialiasing = ClientPrefs.globalAntialiasing;
 						add(char);
 					case 6:
 						char = new FlxSprite(-300, -170).loadGraphic(Paths.image('mainmenu/diambi'));//put your cords and image here
@@ -200,7 +193,6 @@ class MainMenuState extends MusicBeatState
 						char.animation.play('idleR');//you can rename the anim however you want to
 						char.scrollFactor.set();
 						char.scale.set(0.7, 0.7);
-						char.antialiasing = ClientPrefs.globalAntialiasing;
 						add(char);
 					    
 
@@ -324,12 +316,10 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									case 'extras':
-										MusicBeatState.switchState(new ExtrasMenuState());
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
 									case 'options':
-										MusicBeatState.switchState(new OptionsState());
+										MusicBeatState.switchState(new options.OptionsState());
 								}
 							});
 						}
