@@ -18,11 +18,6 @@ jobs:
             buildArgs: linux
             artifactName: linuxArm64Build
             artifactPath: export/release/linux/bin/*
-          - name: macOS x86_64
-            os: macos-14
-            buildArgs: "mac -64 -D HXCPP_M64"
-            artifactName: macOSBuild-x86_64
-            artifactPath: export/release/macos/bin/*
           - name: macOS AArch64
             os: macos-15
             buildArgs: mac
