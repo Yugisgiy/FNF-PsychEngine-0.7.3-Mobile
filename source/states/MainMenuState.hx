@@ -68,6 +68,13 @@ class MainMenuState extends MusicBeatState
 		backdrop.screenCenter(X);
 		add(backdrop);
 
+		var bga:FlxSprite = new FlxSprite(-120).loadGraphic(Paths.image('bgthing'));
+		bga.setGraphicSize(Std.int(bg.width * 1.175));
+		bga.updateHitbox();
+		bga.screenCenter();
+		bga.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bga);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
@@ -233,6 +240,28 @@ class MainMenuState extends MusicBeatState
 
 					FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker)
 					{
+
+					menuItems.forEach(function(spr:FlxSprite)
+						{
+							if (curSelected != spr.ID)
+							{
+																FlxTween.tween(char, {x: -700}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+									char.kill(); /*I killed the char*/
+								}});
+								FlxTween.tween(spr, {x: 1200}, 2, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween) {
+									spr.kill(); /*Mom I killed the sprs again*/
+								}});
+								FlxTween.tween(spr, {alpha: 0}, 1.3, {ease: FlxEase.backInOut, type: ONESHOT, onComplete: function(twn:FlxTween){
+									spr.kill(); /*Mom I killed the sprs again*/
+								}});
+							}
+							else
+							{
+
+						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+
+						{
+																	   
 						switch (optionShit[curSelected])
 						{
 							case 'story_mode':
