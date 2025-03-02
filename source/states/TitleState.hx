@@ -219,11 +219,9 @@ class TitleState extends MusicBeatState
 
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
 		gfDance.animation.addByPrefix('idle', "GF Dancing Beat", 24);
-		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 		gfDance.scale.set(0.5,0.5);
 		gfDance.x += 320;
 		gfDance.y -= 200;
-		gfDance.shader = swagShader.shader;
 		add(gfDance);
 
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
@@ -412,12 +410,6 @@ class TitleState extends MusicBeatState
 		if (initialized && pressedEnter && !skippedIntro)
 		{
 			skipIntro();
-		}
-
-		if(swagShader != null)
-		{
-			if(controls.UI_LEFT) swagShader.hue -= elapsed * 0.1;
-			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
 		}
 
 		if (!pressedEnter && !pressedSkip && !transitioning && skippedIntro)
