@@ -70,7 +70,6 @@ class TitleState extends MusicBeatState
 	var titleText:FlxSprite;
 	var animbarScrt:FlxBackdrop;
 	var animbarScrb:FlxBackdrop;
-	var swagShader:ColorSwap = null;
 
 	var wackyImage:FlxSprite;
 
