@@ -142,7 +142,6 @@ class DesktopMenu extends MusicBeatState
 		FlxG.cameras.reset(camWhat);
 		FlxG.cameras.add(camText);
 		FlxCamera.defaultCameras = [camWhat];
-		CustomFadeTransition.nextCamera = camText;
 		super.create();
 	}
 	override function update(elapsed:Float) {
