@@ -142,7 +142,7 @@ class DesktopMenu extends MusicBeatState
 		FlxG.cameras.reset(camWhat);
 		FlxG.cameras.add(camText);
 		FlxCamera.defaultCameras = [camWhat];
-		addTouchPad("NONE", "E");
+		addTouchPad("NONE", "A_E");
 		super.create();
 	}
 	override function update(elapsed:Float) {
