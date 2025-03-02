@@ -115,7 +115,6 @@ class DesktopMenu extends MusicBeatState
 	
 								PlayState.campaignScore = 0;
 								PlayState.campaignMisses = 0;
-								CoolUtil.difficulties = ["Hard"];
 							});
 						}
 						else if (icons[i].length != 0)
@@ -257,7 +256,6 @@ class RunTab extends FlxGroup {
 			case "winver": FlxG.state.add(new Winver());
 			case "cdplayer": 	FlxG.state.add(new MusicPlayer());
 								FlxG.sound.music.volume = 0.01;
-			case "passionatedevs": ClientPrefs.rtxMode = !ClientPrefs.rtxMode;
 			default: if (runText.contains("www") || runText.contains("http") || runText.contains("com")) CoolUtil.browserLoad(runText);
 		}
 	}
