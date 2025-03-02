@@ -2,7 +2,7 @@ package menus;
 
 import important.Song;
 import flixel.addons.ui.FlxUIButton;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 import flixel.FlxGame;
 import flixel.addons.ui.FlxMultiGamepadAnalogStick.XY;
 import flixel.addons.ui.FlxUIInputText;
@@ -12,9 +12,6 @@ import misc.CustomFadeTransition;
 import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.group.FlxGroup;
-#if desktop
-import important.Discord.DiscordClient;
-#end
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
@@ -35,9 +32,9 @@ class DesktopMenu extends MusicBeatState
 		"discord" => "https://discord.gg/ron-874366610918473748",
 		"random" => "https://www.facebook.com",
 		"settings" => new options.OptionsState(),
-		"freeplay" => new MasterFreeplayState(),
+		"freeplay" => new FreeplayState(),
 		"story mode" => "story mode is idiot",
-		"credits" => new CreditMenu()
+		"credits" => new CreditsState()
 	];
 	var camText:FlxCamera;
 	public static var leftState:Bool = false;
