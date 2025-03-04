@@ -121,7 +121,6 @@ class DesktopMenu extends MusicBeatState
 								PlayState.SONG = backend.Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 								PlayState.campaignScore = 0;
 								PlayState.campaignMisses = 0;
-								backend.CoolUtil.difficulties = ["Hard"];
 								backend.WeekData.reloadWeekFiles(true);
 								video.playMP4(Paths.video('ron'), new PlayState(), false, false, false);
 							});
