@@ -151,13 +151,6 @@ class DesktopMenu extends MusicBeatState
 		camWhat = new FlxCamera();
 		FlxG.cameras.reset(camWhat);
 		FlxG.cameras.add(camText);
-		addShader(camWhat, "chromatic aberration");
-		addShader(camWhat, "fake CRT");
-		addShader(camWhat, "8bitcolor");
-		Shaders["8bitcolor"].shader.data.enablethisbitch.value = [1.];
-		Shaders["chromatic aberration"].shader.data.rOffset.value = [chromeOffset/2];
-		Shaders["chromatic aberration"].shader.data.gOffset.value = [0.0];
-		Shaders["chromatic aberration"].shader.data.bOffset.value = [chromeOffset * -1];
 		FlxCamera.defaultCameras = [camWhat];
 		CustomFadeTransition.nextCamera = camText;
 		super.create();
@@ -182,8 +175,6 @@ class DesktopMenu extends MusicBeatState
 				FlxTween.tween(window, {y: ywindow + 10, angle: -10}, 1, {ease: FlxEase.circInOut, type: PINGPONG});
 			}
 		}*/
-		Shaders["chromatic aberration"].shader.data.rOffset.value = [chromeOffset*Math.sin(time)];
-		Shaders["chromatic aberration"].shader.data.bOffset.value = [-chromeOffset*Math.sin(time)];
 		#if desktop
 		if (FlxG.keys.anyJustPressed(debugKeys))
 			MusicBeatState.switchState(new editors.MasterEditorMenu());
