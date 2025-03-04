@@ -8,7 +8,7 @@ import openfl.media.Video;
 import openfl.net.NetConnection;
 import openfl.net.NetStream;
 import vlc.VlcBitmap;
-import important.Controls.Control;
+import backend.Controls;
 import flixel.util.FlxTimer;
 import flixel.FlxSprite;
 import hxcodec.flixel.FlxVideo;
