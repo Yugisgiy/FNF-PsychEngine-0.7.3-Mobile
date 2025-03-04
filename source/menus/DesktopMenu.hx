@@ -56,7 +56,6 @@ class DesktopMenu extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the desktop", null);
 		#end
-		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		persistentUpdate = persistentDraw = true;
 		var iconI:Int = 0;
@@ -124,7 +123,7 @@ class DesktopMenu extends MusicBeatState
 								PlayState.campaignMisses = 0;
 								backend.CoolUtil.difficulties = ["Hard"];
 								backend.WeekData.reloadWeekFiles(true);
-								video.playMP4(Paths.videoRon('ron'), new PlayState(), false, false, false);
+								video.playMP4(Paths.video('ron'), new PlayState(), false, false, false);
 							});
 						}
 						else if (icons[i].length != 0)
