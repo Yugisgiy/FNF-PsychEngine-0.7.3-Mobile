@@ -129,7 +129,7 @@ class MP4Handler
 		{
 			if (finishCallback != null)
 			{
-				menus.LoadingState.loadAndSwitchState(finishCallback);
+				states.LoadingState.loadAndSwitchState(finishCallback);
 			}
 			//vlcBitmap.dispose();
 
@@ -146,7 +146,7 @@ class MP4Handler
 	{
 		if (finishCallback != null)
 		{
-			menus.LoadingState.loadAndSwitchState(finishCallback);
+			states.LoadingState.loadAndSwitchState(finishCallback);
 		}
 	}
 
