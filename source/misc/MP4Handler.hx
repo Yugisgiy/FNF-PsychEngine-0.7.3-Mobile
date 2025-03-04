@@ -43,7 +43,6 @@ class MP4Handler
 		// we dont wanna see the game anymore do we
 		if (!ClientPrefs.cutscenes) {
 			finishCallback = callback;
-			onVLCComplete();
 			return;
 		}
 		#if html5
@@ -78,13 +77,11 @@ class MP4Handler
 		{
 			video2.dispose();
 			finishCallback = callback;
-			onVLCComplete();
 			return;
 		}, true);
 		video2.onEncounteredError.add(function() {
 			video2.dispose();
 			finishCallback = callback;
-			onVLCComplete();
 			return;
 		}, true);
 		#end
@@ -193,10 +190,10 @@ class MP4Handler
 
 		if (finishCallback != null)
 		{
-			menus.LoadingState.loadAndSwitchState(finishCallback);
+			states.LoadingState.loadAndSwitchState(finishCallback);
 		}
 		else
-			menus.LoadingState.loadAndSwitchState(new menus.MainMenuState());
+			states.LoadingState.loadAndSwitchState(new menus.MainMenuState());
 	}
 
 	// old html5 player
