@@ -119,11 +119,11 @@ class DesktopMenu extends MusicBeatState
 
 								PlayState.storyDifficulty = 0;
 	
-								PlayState.SONG = important.Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+								PlayState.SONG = backend.Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 								PlayState.campaignScore = 0;
 								PlayState.campaignMisses = 0;
-								CoolUtil.difficulties = ["Hard"];
-								important.WeekData.reloadWeekFiles(true);
+								backend.CoolUtil.difficulties = ["Hard"];
+								backend.WeekData.reloadWeekFiles(true);
 								video.playMP4(Paths.videoRon('ron'), new PlayState(), false, false, false);
 							});
 						}
@@ -266,7 +266,6 @@ class RunTab extends FlxGroup {
 			case "winver": FlxG.state.add(new Winver());
 			case "cdplayer": 	FlxG.state.add(new MusicPlayer());
 								FlxG.sound.music.volume = 0.01;
-			case "passionatedevs": ClientPrefs.rtxMode = !ClientPrefs.rtxMode;
 			default: if (runText.contains("www") || runText.contains("http") || runText.contains("com")) CoolUtil.browserLoad(runText);
 		}
 	}
