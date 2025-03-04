@@ -2,7 +2,7 @@ package menus;
 
 import backend.Song;
 import flixel.addons.ui.FlxUIButton;
-import flixel.sound.FlxSound;
+import flixel.system.FlxSound;
 import flixel.FlxGame;
 import flixel.addons.ui.FlxMultiGamepadAnalogStick.XY;
 import flixel.addons.ui.FlxUIInputText;
@@ -12,9 +12,6 @@ import misc.CustomFadeTransition;
 import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.group.FlxGroup;
-#if desktop
-import important.Discord.DiscordClient;
-#end
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
