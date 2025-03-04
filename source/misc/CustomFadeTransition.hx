@@ -33,8 +33,6 @@ class CustomFadeTransition extends MusicBeatSubstate {
 		super();
 
 		this.isTransIn = isTransIn;
-		var width:Int = Std.int(FlxG.width / zoom);
-		var height:Int = Std.int(FlxG.height / zoom);
 		transGradient = new FlxSprite().makeGraphic(width, height, FlxColor.BLACK);
 		transGradient.scrollFactor.set();
 		//add(transGradient);
