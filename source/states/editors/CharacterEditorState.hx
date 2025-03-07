@@ -13,6 +13,8 @@ import flixel.util.FlxDestroyUtil;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
+import openfl.events.MouseEvent;
+import openfl.geom.Point;
 import openfl.utils.Assets;
 import lime.system.Clipboard;
 
@@ -54,6 +56,9 @@ class CharacterEditorState extends MusicBeatState
 
 	var UI_box:FlxUITabMenu;
 	var UI_characterbox:FlxUITabMenu;
+
+	var cameraPosition:Point = new Point();
+	var isDragging:Bool = false;
 
 	public function new(char:String = null, goToPlayState:Bool = true)
 	{
@@ -157,6 +162,13 @@ class CharacterEditorState extends MusicBeatState
 
 		addTouchPad("LEFT_FULL", "CHARACTER_EDITOR");
 		addTouchPadCamera();
+
+		if (controls.mobileC)
+		{
+			FlxG.stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseEvent);
+			FlxG.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseEvent);
+			FlxG.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseEvent);
+		}
 
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearUnusedMemory();
 
@@ -859,7 +871,6 @@ class CharacterEditorState extends MusicBeatState
 	var holdingFrameTime:Float = 0;
 	var holdingFrameElapsed:Float = 0;
 	var undoOffsets:Array<Float> = null;
-	var cameraPosition:Array<Float> = [0, 0];
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
@@ -886,21 +897,6 @@ class CharacterEditorState extends MusicBeatState
 		if (FlxG.keys.pressed.K) FlxG.camera.scroll.y += elapsed * 500 * shiftMult * ctrlMult;
 		if (FlxG.keys.pressed.L) FlxG.camera.scroll.x += elapsed * 500 * shiftMult * ctrlMult;
 		if (FlxG.keys.pressed.I) FlxG.camera.scroll.y -= elapsed * 500 * shiftMult * ctrlMult;
-
-		if (controls.mobileC)
-		{
-			var mouse = FlxG.mouse.getScreenPosition(); // using FlxG.mouse cuz FlxTouch suck
-			if (FlxG.mouse.justPressed && !FlxG.mouse.overlaps(UI_characterbox))
-			{
-				cameraPosition[0] = FlxG.camera.scroll.x + mouse.x;
-				cameraPosition[1] = FlxG.camera.scroll.y + mouse.y;
-			}
-			else if (FlxG.mouse.pressed && !FlxG.mouse.overlaps(UI_characterbox))
-			{
-				FlxG.camera.scroll.x = cameraPosition[0] - mouse.x;
-				FlxG.camera.scroll.y = cameraPosition[1] - mouse.y;
-			}
-		}
 
 		var lastZoom = FlxG.camera.zoom;
 		if(FlxG.keys.justPressed.R && !FlxG.keys.pressed.CONTROL || touchPad.buttonZ.justPressed) FlxG.camera.zoom = 1;
@@ -1368,5 +1364,26 @@ class CharacterEditorState extends MusicBeatState
 			_file.save(data, '$_char.json');
 			#end
 		}
+	}
+
+	function onMouseEvent(e:MouseEvent):Void
+	{
+		if (!touchPad.anyPressed([ANY]))
+			switch (e.type)
+			{
+				case MouseEvent.MOUSE_DOWN:
+					var mouse = new Point(e.stageX, e.stageY); // OpenFL mouse position
+					cameraPosition.x = FlxG.camera.scroll.x + mouse.x;
+					cameraPosition.y = FlxG.camera.scroll.y + mouse.y;
+					isDragging = true;
+
+				case MouseEvent.MOUSE_MOVE if (isDragging):
+					var mouse = new Point(e.stageX, e.stageY);
+					FlxG.camera.scroll.x = cameraPosition.x - mouse.x;
+					FlxG.camera.scroll.y = cameraPosition.y - mouse.y;
+
+				case MouseEvent.MOUSE_UP:
+					isDragging = false;
+			}
 	}
 }
