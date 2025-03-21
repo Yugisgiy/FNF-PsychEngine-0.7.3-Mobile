@@ -16,7 +16,7 @@ import lime.app.Application;
 import states.TitleState;
 import mobile.backend.MobileScaleMode;
 import openfl.events.KeyboardEvent;
-#if linux
+#if (linux || mac)
 import lime.graphics.Image;
 #end
 #if COPYSTATE_ALLOWED
@@ -128,7 +128,7 @@ class Main extends Sprite
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
 
-		#if linux
+		#if (linux || mac)
 		var icon = Image.fromFile("icon.png");
 		Lib.current.stage.window.setIcon(icon);
 		#end
