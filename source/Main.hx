@@ -23,6 +23,12 @@ import lime.graphics.Image;
 import states.CopyState;
 #end
 
+#if (linux && !debug)
+@:cppInclude('./external/gamemode_client.h')
+@:cppFileCode('
+	#define GAMEMODE_AUTO
+')
+#end
 class Main extends Sprite
 {
 	var game = {
