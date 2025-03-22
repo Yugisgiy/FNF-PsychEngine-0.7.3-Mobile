@@ -3,7 +3,7 @@
     {
       "name": "lime",
       "type": "git",
-      "ref": "master",
+      "ref": "main",
       "url": "https://github.com/MobilePorting/lime"
     },
     {
