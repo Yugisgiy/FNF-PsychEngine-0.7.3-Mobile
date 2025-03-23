@@ -74,13 +74,6 @@
       "url": "https://github.com/MobilePorting/linc_luajit"
     },
     {
-      "name": "hxvlc",
-      "type": "git",
-      "dir": null,
-      "ref": "main",
-      "url": "https://github.com/MAJigsaw77/hxvlc"
-    },
-    {
       "name": "flxanimate",
       "type": "git",
       "dir": null,
