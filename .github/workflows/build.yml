@@ -74,7 +74,6 @@ jobs:
           haxelib install flixel-ui 2.6.1
           haxelib install flixel-addons 3.2.2
           haxelib install tjson
-          haxelib install hxcpp https://github.com/MobilePorting/hxcpp
           haxelib install hxCodec https://github.com/MobilePorting/hxCodec
           haxelib install hxvlc 1.7.1
           haxelib install hxjsonast
