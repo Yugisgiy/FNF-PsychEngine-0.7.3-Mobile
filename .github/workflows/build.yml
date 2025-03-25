@@ -65,8 +65,22 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib setup ~/haxelib
+          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp.git
+          haxelib git lime https://github.com/mcagabe19-stuff/lime-8.2.0
+          haxelib install openfl
+          haxelib install flixel 5.8.0
+          haxelib install flixel-tools
+          haxelib install flixel-ui 2.6.1
+          haxelib install flixel-addons 3.2.2
+          haxelib install tjson
+          haxelib install hxcpp https://github.com/MobilePorting/hxcpp
+          haxelib install hxCodec https://github.com/MobilePorting/hxCodec
+          haxelib install hxvlc 1.7.1
+          haxelib install hxjsonast
+          haxelib install SScript https://github.com/MobilePorting/SScript-7.7.0
+          haxelib git linc_luajit https://github.com/mcagabe19-stuff/linc_luajit-rewriten
+          haxelib git flxanimate https://github.com/ShadowMario/flxanimate.git
           haxelib install compiletime
           haxelib install flixel-screenshot-plugin
 
@@ -77,6 +91,8 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
           haxelib run lime config JAVA_HOME $JAVA_HOME_17_X64
           haxelib run lime config ANDROID_SETUP true
+          haxelib set flixel-addons 3.2.2
+          haxelib set hxvlc 1.7.1
 
       - name: Compile
         run: haxelib run lime build ${{ inputs.buildArgs }}
