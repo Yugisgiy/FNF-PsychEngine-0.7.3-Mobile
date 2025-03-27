@@ -1,84 +1,11 @@
 {
   "dependencies": [
     {
-      "name": "lime",
-      "type": "git",
-      "ref": "main",
-      "url": "https://github.com/Yugisgiy/lime"
-    },
-    {
-      "name": "openfl",
-      "type": "git",
-      "dir": null,
-      "ref": "9.3.2",
-      "url": "https://github.com/MobilePorting/openfl"
-    },
-    {
-      "name": "flixel",
-      "type": "haxelib",
-      "version": "5.8.0"
-    },
-    {
-      "name": "flixel-addons",
-      "type": "haxelib",
-      "version": "3.2.2"
-    },
-    {
-      "name": "flixel-tools",
-      "type": "haxelib",
-      "version": "1.5.1"
-    },
-    {
-      "name": "flixel-ui",
-      "type": "haxelib",
-      "version": "2.6.1"
-    },
-    {
-      "name": "hxcpp",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/MobilePorting/hxcpp"
-    },
-    {
-      "name": "hxCodec",
-      "type": "git",
-      "dir": null,
-      "ref": "main",
-      "url": "https://github.com/MobilePorting/hxCodec"
-    },
-    {
       "name": "SScript",
       "type": "git",
       "dir": null,
       "ref": "main",
       "url": "https://github.com/MobilePorting/SScript-7.7.0"
-    },
-    {
-      "name": "tjson",
-      "type": "haxelib",
-      "version": "1.4.0"
-    },
-    {
-      "name": "hxdiscord_rpc",
-      "type": "git",
-      "dir": null,
-      "ref": "main",
-      "url": "https://github.com/MobilePorting/hxdiscord_rpc"
-    },
-    {
-      "name": "linc_luajit",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/MobilePorting/linc_luajit"
-    },
-    {
-      "name": "flxanimate",
-      "type": "git",
-      "dir": null,
-      "ref": "dev",
-      "url": "https://github.com/ShadowMario/flxanimate.git"
     }
   ]
 }
