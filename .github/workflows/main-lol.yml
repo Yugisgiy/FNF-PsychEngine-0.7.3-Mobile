@@ -54,8 +54,7 @@ jobs:
           haxelib install tjson
           haxelib install hxvlc 1.7.1
           haxelib install hxjsonast
-          haxelib install hscript
-          haxelib install SScript https://github.com/MobilePorting/SScript-7.7.0
+          haxelib install SScript 7.7.0 https://github.com/MobilePorting/SScript-7.7.0
           haxelib git linc_luajit https://github.com/mcagabe19-stuff/linc_luajit-rewriten
           haxelib install extension-androidtools
           haxelib install hxcpp-debug-server
